@@ -17,3 +17,11 @@ body {
 	text-align: center;
 	cursor: pointer;
 }
+
+.cart {
+	margin: 25px 100px;
+	float: right;
+	border: 1px solid #d8d8e8;
+	padding: 10px 30px;
+	background-color: #f0f0ff;
+}
