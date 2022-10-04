@@ -38,3 +38,12 @@ body {
 	background-color: #d8d8e8;
 	cursor: not-allowed;
 }
+
+.review-form {
+  display: flex;
+  flex-direction: column;
+  width: 425px;
+  padding: 20px;
+  margin: 40px;
+  background-color: #f0f0ff;
+}
