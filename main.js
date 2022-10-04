@@ -3,12 +3,13 @@ const app = Vue.createApp({
 		return {
 			cart: 0,
 			product: 'Shoes',
-			image: './assets/images/sneakers_green.png',
-			inStock: false,
+			brand: 'Vue Mastery',
+			onSale: true,
+			selectedVariant: 0,
 			details: ['50% cotton', '30% wool', '20% polyester'],
 			variants: [
-				{ id: 2234, color: 'green', image: './assets/images/sneakers_green.png' },
-				{ id: 2235, color: 'blue', image: './assets/images/sneakers_blue.png' },
+				{ id: 2234, color: 'green', image: './assets/images/sneakers_green.png', quantity: 50 },
+				{ id: 2235, color: 'blue', image: './assets/images/sneakers_blue.png', quantity: 0 },
 			]
 		}
 	},
@@ -19,8 +20,25 @@ const app = Vue.createApp({
 		removeFromCart() {
 			this.cart -=1
 		},
-		updateImage(variantImage) {
-			this.image = variantImage
+		updateVariant(index) {
+			this.selectedVariant = index
+		}
+	},
+	computed: {
+		title() {
+			return this.brand + ' ' + this.product
+		},
+		image() {
+			return this.variants[this.selectedVariant].image
+		},
+		inStock() {
+			return this.variants[this.selectedVariant].quantity
+		},
+		saleMessage() {
+			if (this.onSale) {
+				return this.brand + ' ' + this.product + ' is on sale.'
+			}
+			return ''
 		}
 	}
 })
